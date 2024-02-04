@@ -9,6 +9,7 @@ var array = [
     'looks maxxing ',
     'ohio ',
     'sigma ',
+    '(real)',
     'is the rizzler??? ',
     'fortnite ',
     'peter griffin ',

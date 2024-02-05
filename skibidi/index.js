@@ -30,7 +30,7 @@ var array = [
 ]
 submit.onclick = e => {
     if (input.value > 0) {
-        var prev = "";
+        let prev = "";
         var i = 1;
         var length = input.value;
         var output = "";

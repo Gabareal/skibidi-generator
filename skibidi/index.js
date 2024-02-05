@@ -30,14 +30,17 @@ var array = [
 ]
 submit.onclick = e => {
     if (input.value > 0) {
+        var prev = "";
         var i = 1;
         var length = input.value;
         var output = "";
         while (i<=length) {
             var characterToAdd = array[Math.floor(Math.random()*array.length)]
             output += characterToAdd
-            console.log(output)
-            i++
+            if (characterToAdd != prev){
+                i++
+                prev = characterToAdd
+            }
         }
         outputElement.innerHTML = output;
     }

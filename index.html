@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skibidi Phrase Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0; 
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #1e1e1e; 
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        input, button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #bbbbbb;
+        }
+
+        .heart {
+            color: red;
+            display: inline-block;
+            margin: 0 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to the Skibidi Phrase Generator</h1>
+    <p>Enter the number of elements you want in your phrase:</p>
+    <input type="number" id="input" min="1" placeholder="Enter a number...">
+    <button id="submit">Generate Phrase</button>
+    <p id="output"></p>
+</div>
+<div class="footer">
+    Made by Aathithya and Gabriel Ng <span class="heart">&hearts;</span>
+</div>
+<script>
+    const submit = document.getElementById("submit");
+    const input = document.getElementById("input");
+    const outputElement = document.getElementById("output");
+
+    var array = [
+    'skibidi toilet ',
+    'kai cenat ',
+    'ice spice ',
+    'looks maxxing ',
+    'ohio ',
+    'sigma ',
+    'has a level 10000 gyatt.',
+    'has a L gyatt',
+    'you have GYATT to be kidding me!',
+    'i GYATT something in my eye!',
+    '(real)',
+    'is the rizzler??? ',
+    'fortnite ',
+    'peter griffin ',
+    'family guy ',
+    '!!11!1!!1!',
+    'One two buckle my shoe ',
+    'W ',
+    'fanum tax ',
+    'mewing ',
+    'mogging ',
+    'rizz ',
+    'baby gronk ',
+    'livvy ',
+    'but ',
+    'and ',
+    'however ',
+    'sadly ',
+]
+
+    submit.onclick = () => {
+        let length = parseInt(input.value);
+        if (length > 0) {
+            let output = "";
+            let prev = "";
+            let i = 0;
+            while (i < length) {
+                let characterToAdd = array[Math.floor(Math.random() * array.length)];
+                if (characterToAdd !== prev) {
+                    if (i > 0 && !characterToAdd.match(/^[,.!?]/)) output += " ";
+                    output += characterToAdd;
+                    prev = characterToAdd;
+                    i++;
+                }
+            }
+            outputElement.textContent = output + ".";
+        } else {
+            outputElement.textContent = "Please enter a valid number greater than 0.";
+        }
+    };
+</script>
+</body>
+</html>
